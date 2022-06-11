@@ -4,6 +4,7 @@ public:
         int m = n;
         //first create a mask
         int mask = 0;
+        // edge case
         if(n == 0) return 1;
         
         while(m != 0){
