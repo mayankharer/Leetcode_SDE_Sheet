@@ -30,11 +30,17 @@ class Solution
     public:
     void display(Node *head)
     {
-        Node* temp = head;
-      //your code goes here
-      while(temp!=NULL){
-         cout << temp->data<<" ";
-         temp = temp->next;
+        // we can do it without adding extra pointer 
+        // add ppointer to head and assign the memory
+        // Node* temp = head;
+        //your code goes here
+    //     while(temp!=NULL){
+    //         cout << temp->data<<" ";
+    //         temp = temp->next;
+    //   }
+        while(head!=NULL){
+            cout << head->data<<" ";
+            head = head->next;
       }
     }
 };
