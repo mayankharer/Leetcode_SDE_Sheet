@@ -10,25 +10,36 @@
  */
 class Solution {
 public:
-    void reverse(ListNode* &head){
-        ListNode* prevptr = NULL;
-        ListNode* currentptr = head;
-        ListNode* nextptr = NULL;
-        
-        while(currentptr!=NULL){
-            nextptr = currentptr->next;  
-            currentptr->next = prevptr;
-            //now incrementing the pointers
-            prevptr = currentptr;
-            currentptr = nextptr;
-        }
-        head = prevptr;
-    }
-    
-public:
     ListNode* reverseList(ListNode* head) {
-        reverse(head);
-        return head;
-        return 0;
-    }
+        ListNode* newhead = NULL;
+        while(head!=NULL){
+            ListNode* next = head->next;
+            head->next = newhead;
+            newhead = head;
+            head = next;
+        }
+        return newhead;
+    }    
+// public:
+//     void reverse(ListNode* &head){
+//         ListNode* prevptr = NULL;
+//         ListNode* currentptr = head;
+//         ListNode* nextptr = NULL;
+        
+//         while(currentptr!=NULL){
+//             nextptr = currentptr->next;  
+//             currentptr->next = prevptr;
+//             //now incrementing the pointers
+//             prevptr = currentptr;
+//             currentptr = nextptr;
+//         }
+//         head = prevptr;
+//     }
+    
+// public:
+//     ListNode* reverseList(ListNode* head) {
+//         reverse(head);
+//         return head;
+//         return 0;
+//     }
 };
