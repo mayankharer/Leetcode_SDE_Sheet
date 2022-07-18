@@ -1,3 +1,6 @@
+/*
+Intuition: We can think of using two pointers ‘i’ and ‘j’, we move ‘j’ till we don’t get a number nums[j] which is different from nums[i]. As we got a unique number we will increase the i pointer and update its value by nums[j]. 
+*/
 class Solution {
 public:
     int removeDuplicates(vector<int>& nums) {
