@@ -11,8 +11,10 @@
  */
 class Solution {
     int mindif = INT_MAX;
+    int prev = -1;
     vector<int>v;
-    void DFS(TreeNode* r){
+    void inorder(TreeNode* r){
+        
         if(!r) return;
         // if(r->left){
         //     if(mindif>abs(r->val-r->left->val))mindif=abs(r->val-r->left->val);
@@ -20,20 +22,17 @@ class Solution {
         // if(r->right){
         //     if(mindif>abs(r->val-r->right->val))mindif=abs(r->val-r->right->val);
         // }
-        v.push_back(r->val);
-        DFS(r->left);
-        DFS(r->right);   
+        inorder(r->left);
+        if(prev>=0)
+        mindif = min(mindif,r->val-prev);
+        prev = r->val;
+        inorder(r->right);   
     }
     
     public:
     int minDiffInBST(TreeNode* root) {
-    
-        DFS(root);
-        for(int i=0;i<v.size();i++){
-            for(int j=i+1;j<v.size();j++){
-                mindif=min(mindif,abs(v[i]-v[j]));
-            }
-        }
+        inorder(root);
         return mindif;
+        
     }
 };
