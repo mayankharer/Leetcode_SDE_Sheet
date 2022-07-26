@@ -9,6 +9,7 @@ public:
             else if(n[m]<n[h]) h = m;
             else h--;
         }
-        return n[l];
+        // return n[l];
+        return n[h];
     }
 };
