@@ -1,21 +1,20 @@
 class Solution {
 public:
     bool isPalindrome(string s) {
-        int l=0,r=s.size()-1;
-        while(l<r)
-        {
-            if(!isalnum(s[l]))
-                l++;
-            else if(!isalnum(s[r]))
-                r--;
-            else if(tolower(s[l])!=tolower(s[r]))
-                return false;
-            else
-            {
-                l++;
-                r--;
+        vector<char> v;
+        string ans = "";
+        for(int i = 0;i<s.size();i++){
+            if(s[i]>=97 && s[i]<=122 || s[i]>=65 && s[i]<=90 || s[i]>=48 && s[i]<=57){
+                // v.emplace_back(s[i]);
+                if(s[i]>=65 && s[i]<=90) ans+=s[i]+32;
+                else
+                    ans+=s[i];
             }
         }
-        return true;
+        string rev;
+        rev = ans;
+        reverse(ans.begin(),ans.end());
+        return ans==rev;        
     }
 };
+
