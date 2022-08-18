@@ -8,7 +8,7 @@ public:
     }
     
     void reverseString(vector<char>& s) {
-        //  without using extra space
+        //  without using extra space-------> Two pointer approach
         int l=0,h=s.size()-1;
         for(int i = 0;i<s.size()/2;i++){
             swapp(s[l],s[h]);
