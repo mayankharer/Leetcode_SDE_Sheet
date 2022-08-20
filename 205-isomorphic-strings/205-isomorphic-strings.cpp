@@ -6,7 +6,7 @@ public:
         unordered_map<char, int> map2;
         
         for(int i =0 ;i < s.length(); i++){
-            // insert each character if string s and t into seperate map
+            // insert each character of string s and t into seperate map
             map1[s[i]] = i+1;
             map2[t[i]] = i+1;
         }
