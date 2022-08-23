@@ -19,14 +19,14 @@ public:
 */
 
 class Solution {
-    vector<int> ans;
-    void pre(Node * r){
-        if(!r) return;
-        ans.push_back(r->val);
-        for(auto child:r->children){
-            pre(child);
-        }
+vector<int> ans;
+void pre(Node * r){
+    if(!r) return;
+    ans.push_back(r->val);
+    for(auto child:r->children){
+        pre(child);
     }
+}
 public:
     vector<int> preorder(Node* root) {
         if(!root) return {};
