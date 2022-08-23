@@ -4,16 +4,24 @@ Intuition: We can think of using two pointers ‘i’ and ‘j’, we move ‘j�
 class Solution {
 public:
     int removeDuplicates(vector<int>& nums) {
-    if(nums.size()==0)
-        return 0;
-    int i = 0;
+        unordered_set<int> s(nums.begin(),nums.end());
+        nums.clear();
         
-    for(int j=1;j<nums.size();j++){
-        if(nums[j]!=nums[i]){
-            i++;
-            nums[i]=nums[j];
+        for(auto i:s){
+            nums.emplace_back(i);
         }
-    }
-    return i+1;
+        sort(nums.begin(),nums.end());
+        return s.size();
+        // if(nums.size()==0)
+        //     return 0;
+        // int i = 0;
+        // for(int j=1;j<nums.size();j++){
+        //     if(nums[j]!=nums[i]){
+        //         i++;
+        //         cout << i << endl;
+        //         nums[i]=nums[j];
+        //     }
+        // }
+        // return i+1;
     }
 };
