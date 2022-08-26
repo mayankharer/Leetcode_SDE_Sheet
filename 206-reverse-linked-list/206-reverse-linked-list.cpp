@@ -8,56 +8,37 @@
  *     ListNode(int x, ListNode *next) : val(x), next(next) {}
  * };
  */
-// class Solution {
-// public:
-//     ListNode* reverseList(ListNode* head) {
-//         ListNode* newhead = NULL;
-//         while(head!=NULL){
-//             ListNode* next = head->next; //incrementing the next each time
-//             head->next = newhead; // pointing the pointer to prev that is newHead
-//             newhead = head; // as the newhead is pointing to NULL assign head as newHead
-//             head = next; // incrementing the head to next
-//         }
-//         return newhead;
-//     // }    
-//     }
-// };
 class Solution {
 public:
     ListNode* reverseList(ListNode* head) {
-        ListNode* prevptr = NULL;
-        ListNode* currentptr = head;
-        // ListNode* nextptr = NULL;
-        ListNode* nextptr;
-        
-        while(currentptr!=NULL){
-            nextptr = currentptr->next;  
-            currentptr->next = prevptr;
-            //now incrementing the pointers
-            prevptr = currentptr;
-            currentptr = nextptr;
+//         ListNode *curr_ptr = head;
+//         ListNode* prev_ptr = NULL;
+//         ListNode* next_ptr;
+//         while(curr_ptr!=NULL){
+//             next_ptr = curr_ptr->next;
+//             curr_ptr->next = prev_ptr;
+//             prev_ptr = curr_ptr;
+//             curr_ptr = next_ptr;
+//         }
+//         head = prev_ptr;
+//         return head;
+        // reversing a ll using a stack
+        stack<int> st;
+        ListNode* temp = head;
+        while(temp!=NULL){
+            st.push(temp->val);
+            temp = temp->next;
         }
-        head = prevptr;
+        temp = head;
+        while(temp!=NULL){
+            temp->val = st.top();
+            st.pop();
+            temp = temp->next;
+        }
+        
         return head;
+        
+        
+        
     }
 };
-
-// class Solution{
-// public:
-//     void reverse(ListNode* &head){
-//         ListNode* prevptr = NULL;
-//         ListNode* currentptr = head;
-//         // ListNode* nextptr = NULL;
-//         ListNode* nextptr;
-        
-//         while(currentptr!=NULL){
-//             nextptr = currentptr->next;  
-//             currentptr->next = prevptr;
-//             //now incrementing the pointers
-//             prevptr = currentptr;
-//             currentptr = nextptr;
-//         }
-//         head = prevptr;
-//     return head;
-//     }
-// };
